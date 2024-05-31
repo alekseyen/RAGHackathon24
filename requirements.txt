@@ -1,0 +1,10 @@
+PyPDF2
+langchain
+python-docx
+numpy
+pandas
+torch
+streamlit
+langchain_community
+sentence-transformers
+faiss-cpu

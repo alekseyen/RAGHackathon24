@@ -1,0 +1,7 @@
+.env
+rag/tools/1. pdf_to_word_format/__pycache__/*
+*/__pycache__/*
+rag/tools/3. rag_app/.streamlit/config.toml
+__pycache__/
+*/__pycache__/prompts.cpython-310.pyc
+rag/tools/1. pdf_to_word_format/.DS_Store
