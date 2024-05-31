@@ -1,0 +1,4 @@
+[global]
+gatherUsageStats = false
+[server]
+port = 9999
