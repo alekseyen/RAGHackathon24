@@ -1,15 +1,15 @@
-FROM continuumio/anaconda3
+FROM langchain/langchain:0.1.0
 
-# Create and activate environment
-RUN conda create -y --name rag_hackathon
-RUN conda activate rag_hackathon
+# need only for pre processing stage
+# RUN apt-get install -y tesseract-ocr-rus poppler-utils tesseract-ocr
 
-# Install requirements
 COPY requirements.txt .
-RUN pip install -r requirements.txt
+RUN python3 -m pip install -r requirements.txt
+
 
 # Copy app code
 COPY . .
 
 # Run streamlit
-CMD ["streamlit", "run", "bot.py"]
+# CMD ["streamlit", "run", "bot.py"]
+EXPOSE 8501
