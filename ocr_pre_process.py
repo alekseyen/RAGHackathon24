@@ -16,7 +16,7 @@ def pdf_convert_to_json(raw_pdf_elems):
         elem_dict = raw_pdf_elems[idx].to_dict()
         json_to_save[idx] = {"type": elem_dict["type"], "structure": elem_dict}
 
-        return json_to_save
+    return json_to_save
 
 
 def pre_process_docs(
@@ -37,51 +37,14 @@ def pre_process_docs(
         infer_table_structure=True,
         # Post processing to aggregate text once we have the title
         chunking_strategy="by_title",
-        # Chunking params to aggregate text blocks
-        # Attempt to create a new chunk 3800 chars
-        # Attempt to keep chunks > 2000 chars
         max_characters=4000,
         new_after_n_chars=3800,
         combine_text_under_n_chars=2000,
         image_output_dir_path=image_output_dir_path,
     )
 
-    # Create a dictionary to store counts of each type
-    # category_counts = {}
+    print(len(raw_pdf_elements))
 
-    # for element in raw_pdf_elements:
-    #     category = str(type(element))
-    #     if category in category_counts:
-    #         category_counts[category] += 1
-    #     else:
-    #         category_counts[category] = 1
-
-    # # Unique_categories will have unique elements
-    # unique_categories = set(category_counts.keys())
-
-    # print("unique_categories", unique_categories)
-
-    # class Element(BaseModel):
-    #     type: str
-    #     text: Any
-
-    # # Categorize by type
-    # categorized_elements = []
-    # for element in raw_pdf_elements:
-    #     if "unstructured.documents.elements.Table" in str(type(element)):
-    #         categorized_elements.append(Element(type="table", text=str(element)))
-    #     elif "unstructured.documents.elements.CompositeElement" in str(type(element)):
-    #         categorized_elements.append(Element(type="text", text=str(element)))
-
-    # # Tables
-    # table_elements = [e for e in categorized_elements if e.type == "table"]
-    # print(len(table_elements))
-
-    # # Text
-    # text_elements = [e for e in categorized_elements if e.type == "text"]
-    # print(len(text_elements))
-
-    # save table_elements and text_elements to a file with name filenamepath
     with open(
         os.path.join(output_path, filenamepath.split("/")[-1].split(".")[0] + ".json"),
         "w",
@@ -134,7 +97,7 @@ if __name__ == "__main__":
 
     ###### logging
 
-    folder_path = "rag/raw_pdf/машинписное"
+    folder_path = "rag/raw_pdf/отсканированыне документы"
 
     for file in tqdm(os.listdir(folder_path)):
         if file.endswith(".pdf"):
