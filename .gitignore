@@ -5,3 +5,5 @@ rag/tools/3. rag_app/.streamlit/config.toml
 __pycache__/
 */__pycache__/prompts.cpython-310.pyc
 rag/tools/1. pdf_to_word_format/.DS_Store
+Copy_of_Semi_Structured_RAG.ipynb
+**/.DS_Store

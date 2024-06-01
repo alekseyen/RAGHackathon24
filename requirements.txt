@@ -10,3 +10,10 @@ sentence-transformers
 faiss-cpu
 pdf2image
 pytesseract
+langchain
+unstructured[all-docs]
+pydantic
+lxml
+langchainhub
+# ! apt install tesseract-ocr
+# ! apt-get install poppler-utils
