@@ -65,6 +65,16 @@ def pre_process_docs(
     text_elements = [e for e in categorized_elements if e.type == "text"]
     print(len(text_elements))
 
+    # save table_elements and text_elements to a file with name filenamepath
+    import json
+
+    with open(filenamepath.split("/")[-1] + ".json", "w") as f:
+        data = {
+            "tables": [e.dict() for e in table_elements],
+            "text": [e.dict() for e in text_elements],
+        }
+        json.dump(data, f, indent=4)
+
     print(category_counts)
 
     print("-------------- Done pre_process_docs {filenamepath} --------------")
@@ -75,6 +85,7 @@ if __name__ == "__main__":
 
     logging.basicConfig(level=logging.INFO)
 
-    for file in tqdm(os.listdir("rag/raw_pdf/машинписное")):
+    folder_path = "rag/raw_pdf/машинписное"
+    for file in tqdm(os.listdir(folder_path)):
         if file.endswith(".pdf"):
-            pre_process_docs("rag/raw_pdf/" + file)
+            pre_process_docs(os.path.join(folder_path, file))
