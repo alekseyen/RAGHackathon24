@@ -6,9 +6,9 @@ cd rag
 docker compose up -d
 ```
 
-Then go to ![http://localhost:8000](http://localhost:8000) and ask your questions:
+Then go to [http://localhost:8501](http://localhost:8501) and ask your questions:
 
-
+![photo](./img/screen.png)
 
 # Development env setup
 
