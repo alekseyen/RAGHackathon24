@@ -15,5 +15,4 @@ unstructured[all-docs]
 pydantic
 lxml
 langchainhub
-# ! apt install tesseract-ocr
-# ! apt-get install poppler-utils
+python-dotenv

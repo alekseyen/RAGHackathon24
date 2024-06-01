@@ -7,3 +7,4 @@ __pycache__/
 rag/tools/1. pdf_to_word_format/.DS_Store
 Copy_of_Semi_Structured_RAG.ipynb
 **/.DS_Store
+rag/app/.streamlit/config.toml

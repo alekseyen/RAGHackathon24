@@ -1,6 +1,6 @@
 # Command to start
 
-sudo apt-get install tesseract-ocr-rus
+sudo apt-get install tesseract-ocr-rus poppler-utils tesseract-ocr
 
 1. DO the OCR [via Yandex API or XXX]
 
@@ -13,6 +13,7 @@ sudo apt-get install tesseract-ocr-rus
    1.2. unstructured.partition.pdf
 
    File `ocr_pre_process.py`
+   
 
 2. Create FAISS DB:
    cd "rag/tools/2. create_rag_db"
