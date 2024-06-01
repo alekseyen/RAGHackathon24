@@ -8,3 +8,10 @@ streamlit
 langchain_community
 sentence-transformers
 faiss-cpu
+langchain
+unstructured[all-docs]
+pydantic
+lxml
+langchainhub
+# ! apt install tesseract-ocr
+# ! apt-get install poppler-utils
