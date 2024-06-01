@@ -8,3 +8,5 @@ streamlit
 langchain_community
 sentence-transformers
 faiss-cpu
+pdf2image
+pytesseract
