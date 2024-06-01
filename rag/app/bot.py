@@ -9,6 +9,7 @@ from settings import API_TOKEN, CATALOG_NUMBER, CUSTOM_MODEL_YRL
 from langchain_community.llms import YandexGPT
 from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceEmbeddings
+from QABot import answer_question
 
 
 def parse_args():
@@ -99,6 +100,7 @@ llm = load_llm_model(model_url)
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
+
 if question := st.chat_input():
     show_history()
 
@@ -106,10 +108,11 @@ if question := st.chat_input():
         st.markdown(question)
         st.session_state.messages.append({"role": "user", "content": question})
 
-    answer = "Some Answer "  # answer_bot({"query": question})
+    answer = answer_question(
+        question
+    )  # "Some Answer "  # answer_bot({"query": question})
 
+    print("answer is ", answer)
     with st.chat_message("assistant"):
-        st.markdown(answer["result"])
-        st.session_state.messages.append(
-            {"role": "assistant", "content": answer["result"]}
-        )
+        st.markdown(answer)
+        st.session_state.messages.append({"role": "assistant", "content": answer})

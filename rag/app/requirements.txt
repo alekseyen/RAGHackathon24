@@ -1,0 +1,16 @@
+langchain
+python-docx
+streamlit
+langchain_community
+sentence-transformers
+faiss-cpu
+pdf2image
+pytesseract
+langchain
+unstructured[all-docs]
+pydantic
+lxml
+langchainhub
+python-dotenv
+chromadb
+yandexcloud
