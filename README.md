@@ -1,5 +1,7 @@
 # Command to start
 
+sudo apt-get install tesseract-ocr-rus
+
 1. DO the OCR [via Yandex API or XXX]
 
     cd rag/tools/pdf_to_word_format

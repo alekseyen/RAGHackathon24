@@ -129,9 +129,12 @@ def logging__():
 if __name__ == "__main__":
     import os
 
+    ###### logging
     logging__()
 
-    folder_path = "rag/raw_pdf/отсканированыне документы"
+    ###### logging
+
+    folder_path = "rag/raw_pdf/машинписное"
 
     for file in tqdm(os.listdir(folder_path)):
         if file.endswith(".pdf"):
