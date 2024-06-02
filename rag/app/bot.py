@@ -91,11 +91,9 @@ st.text(
 
 raw_prompt = CUSTOM_PROMPT_TEMPLATE
 model_url = CUSTOM_MODEL_YRL
-k_neighbours = 5
 
 template_prompt = convert_raw_prompt_into_template(raw_prompt)
 llm = load_llm_model(model_url)
-# answer_bot = load_bot(prompt=template_prompt, db=db, llm=llm, search_kwargs={"k": k_neighbours})
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
