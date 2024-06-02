@@ -31,54 +31,46 @@ def parse_args():
     return args
 
 
-def load_llm_model(model_url):
-    # example gpt://{индификатор каталога}/yandexgpt-lite/latest
-    llm = YandexGPT(
-        model_uri=model_url.format(CATALOG_NUMBER=CATALOG_NUMBER),
-        api_key=API_TOKEN,
-        temperature=0,
-        max_tokens=4000,
-    )
-    return llm
+# def load_llm_model(model_url):
+#     # example gpt://{индификатор каталога}/yandexgpt-lite/latest
+#     llm = YandexGPT(
+#         model_uri=model_url.format(CATALOG_NUMBER=CATALOG_NUMBER),
+#         api_key=API_TOKEN,
+#         temperature=0,
+#         max_tokens=4000,
+#     )
+#     return llm
 
 
-def load_db(args):
-    embeddings = HuggingFaceEmbeddings(
-        model_name=args.embeddings_model_name,
-        model_kwargs={"device": "cpu"},
-    )
+# def load_db(args):
+#     embeddings = HuggingFaceEmbeddings(
+#         model_name=args.embeddings_model_name,
+#         model_kwargs={"device": "cpu"},
+#     )
 
-    db = FAISS.load_local(
-        args.db_faiss_path, embeddings, allow_dangerous_deserialization=True
-    )
+#     db = FAISS.load_local(
+#         args.db_faiss_path, embeddings, allow_dangerous_deserialization=True
+#     )
 
-    return db
+#     return db
 
 
-def load_bot(prompt, db, llm, search_kwargs):
-    question_answer_system = RetrievalQA.from_chain_type(
-        llm=llm,
-        chain_type="stuff",
-        retriever=db.as_retriever(search_kwargs=search_kwargs),
-        return_source_documents=True,
-        chain_type_kwargs={"prompt": prompt},
-    )
+# def load_bot(prompt, db, llm, search_kwargs):
+#     question_answer_system = RetrievalQA.from_chain_type(
+#         llm=llm,
+#         chain_type="stuff",
+#         retriever=db.as_retriever(search_kwargs=search_kwargs),
+#         return_source_documents=True,
+#         chain_type_kwargs={"prompt": prompt},
+#     )
 
-    return question_answer_system
+#     return question_answer_system
 
 
 def show_history():
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
-
-
-def convert_raw_prompt_into_template(raw_prompt):
-    template_prompt = PromptTemplate(
-        template=raw_prompt, input_variables=["context", "question"]
-    )
-
-    return template_prompt
 
 
 # db = load_db(parse_args())
@@ -89,11 +81,9 @@ st.text(
     "Please don't expect conversation context support and don't ask clarifying questions"
 )
 
-raw_prompt = CUSTOM_PROMPT_TEMPLATE
-model_url = CUSTOM_MODEL_YRL
+# model_url = CUSTOM_MODEL_YRL
 
-template_prompt = convert_raw_prompt_into_template(raw_prompt)
-llm = load_llm_model(model_url)
+# llm = load_llm_model(model_url)
 
 if "messages" not in st.session_state:
     st.session_state.messages = []

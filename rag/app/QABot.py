@@ -9,8 +9,7 @@ from langchain.storage import InMemoryStore
 from langchain_community.vectorstores import Chroma
 
 
-
-model_name = "clips/mfaq" # эти эмбеддинги СОТА для RAG'ов
+model_name = "clips/mfaq"      # эти эмбеддинги СОТА для RAG'ов
 model_kwargs = {'device': 'cpu'}
 
 embeddings = HuggingFaceEmbeddings(
@@ -47,6 +46,8 @@ summarize_chain = {"element": lambda x: x} | prompt | model | StrOutputParser()
 template = """Кратко Ответь на вопрос, основываясь исключительно на следующем контексте, который может включать текст и таблицы в формате markdown:
 {context}
 Вопрос: {question}
+Также если вопрос из списка ответ:
+
 """
 prompt = ChatPromptTemplate.from_template(template)
 
@@ -61,4 +62,8 @@ chain = (
 )
 
 def answer_question(question):
+    print('retriever is: ', retriever.invoke(question), '\n\n')
+    # if retriever.invoke(question):
+    #     print('Перефразируй')
     return chain.invoke(question)
+    
